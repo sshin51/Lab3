@@ -31,12 +31,12 @@ public class WebScraper {
 
 
     public static int wordCount(String script) {
-        String[] count = script.split(" ");
+        String[] count = script.split("\\s+");
 
         System.out.println(count.length);
         return count.length;
     }
-    
+
 
     public static int countWord(String script, String word) {
         int count = 0;
