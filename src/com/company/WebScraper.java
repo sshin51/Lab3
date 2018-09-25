@@ -29,13 +29,27 @@ public class WebScraper {
         wordCount(script);
     }
 
-    String script = urlToString("http://erdani.com/tdpl/hamlet.txt");
 
     public static int wordCount(String script) {
         String[] count = script.split(" ");
-        
+
         System.out.println(count.length);
         return count.length;
+    }
+    
+
+    public static int countWord(String script, String word) {
+        int count = 0;
+        String wordUppercase = word.toUpperCase();
+        String scriptUppercase = script.toUpperCase();
+        String[] splitScript = scriptUppercase.split(" ");
+        for (int i = 0; i < script.length(); i++) {
+            if (wordUppercase.equals(splitScript[i])) {
+                count += 1;
+            }
+        }
+        System.out.println(count);
+        return count;
     }
 
 }
