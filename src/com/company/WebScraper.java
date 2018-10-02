@@ -24,9 +24,13 @@ public class WebScraper {
 
     public static void main(String[] unused) {
         String script = urlToString("http://erdani.com/tdpl/hamlet.txt");
-        //System.out.println(urlToString("http://erdani.com/tdpl/hamlet.txt"));
+        /**
+         * System.out.println(script.toUpperCase());
+         */
 
         wordCount(script);
+        countWord(script, "hamlet");
+
     }
 
 
@@ -42,9 +46,9 @@ public class WebScraper {
         int count = 0;
         String wordUppercase = word.toUpperCase();
         String scriptUppercase = script.toUpperCase();
-        String[] splitScript = scriptUppercase.split(" ");
-        for (int i = 0; i < script.length(); i++) {
-            if (wordUppercase.equals(splitScript[i])) {
+        String[] splitScript = scriptUppercase.split("\\s+");
+        for (int i = 0; i < splitScript.length; i++) {
+            if (splitScript[i].contains(wordUppercase)) {
                 count += 1;
             }
         }
